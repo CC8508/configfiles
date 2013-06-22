@@ -97,19 +97,13 @@ separator.text  = '<span weight="bold" foreground="green">\\</span>'
 -- Initialize widget
 netwidget = widget({ type = "textbox" })
 -- Register widget
-vicious.register(netwidget, vicious.widgets.net, "${wlan0 up_kb}-${wlan0 down_kb}", 1)
+vicious.register(netwidget, vicious.widgets.net, "${eth0 up_kb}-${eth0 down_kb}", 1)
  
 -- Create an fswidget
 -- Initialize widget
 fswidget = widget({ type = "textbox" })
 -- Register widget
 vicious.register(fswidget, vicious.widgets.fs, "/ ${/ used_p}%", 37)
- 
--- Create a batwidget (status chrg%)
--- Initialize widget
-batwidget = widget({ type = "textbox" })
--- Register widget
-vicious.register(batwidget, vicious.widgets.bat, "$1$2%", 31, "BAT0")
  
 -- Create a memwidget (usage$ usedMB/TotalMB)
 -- Initialize widget
@@ -122,16 +116,6 @@ vicious.register(memwidget, vicious.widgets.mem, "$1%~$2MB", 13)
 cpuwidget = widget({ type = "textbox" })
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1%:$2%", 2)
--- Create a cpu tempr
-tzswidget = widget({ type = "textbox" })
-vicious.register(tzswidget, vicious.widgets.thermal, " $1C", 19, "thermal_zone0")
-
--- Create a wifiwidget
--- Initialize widget
-wifiwidget = widget({ type = "textbox" })
--- Register widget
-vicious.register(wifiwidget, vicious.widgets.wifi, "${ssid} ${link}% ${rate}", 5, "wlan0")
-
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
  
